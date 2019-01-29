@@ -13,7 +13,7 @@ func memory() {
 }
 
 func cpuStats() {
-	cpuStats := cpu.InfoStat{}
+	cpuStats, _ := cpu.Info()
 	fmt.Println(cpuStats)
 }
 
