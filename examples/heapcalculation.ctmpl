@@ -1,0 +1,5 @@
+# Calculate the Heap space, in this case 80% of actuel RAM in MB
+# test with consul-template -once -template "heapcalculation.ctmpl:test.txt"
+# compile and put binray in path before testing.
+
+{{ with $d := plugin "system-stats-consul-template-plugin" "memory" | parseJSON }}Total RAM: {{ printf "%.f" ($d.total | divide 1000 | divide 1000) }} HEAP: {{ printf "%.f" (($d.total | multiply 0.8) | divide 1000 | divide 1000) }}{{ end }}
