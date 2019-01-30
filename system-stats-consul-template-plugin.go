@@ -12,7 +12,7 @@ func memory() {
 	fmt.Println(memory)
 }
 
-func cpuStats() {
+func cpuInfo() {
 	cpuStats, _ := cpu.Info()
 	fmt.Println(cpuStats)
 }
@@ -21,8 +21,8 @@ func main() {
 	for _, statsType := range os.Args {
 		if statsType == "memory" {
 			memory()
-		} else if statsType == "cpu" {
-			cpuStats()
+		} else if statsType == "cpuInfo" {
+			cpuInfo()
 		}
 	}
 	os.Exit(0)

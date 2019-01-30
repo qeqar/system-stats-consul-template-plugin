@@ -1,8 +1,8 @@
 # system-stats-consul-template-plugin
-Get Systemstats to use in Consule Template
+Get system stats to use in Consul Template
 
-Plugin based on [gopsutil](https://github.com/shirou/gopsutil) use system stats in Consule Template.
-f.e. calculate HEAP for Java APPS. 
+Plugin based on [gopsutil](https://github.com/shirou/gopsutil) use system stats in Consul Template.
+f.e. calculate HEAP for Java APPs. 
 
 ## Syntax
 
@@ -10,7 +10,20 @@ f.e. calculate HEAP for Java APPS.
 
 ## Stats
  * memory
- * cpu
+ * cpuInfo
+
+## Expample
+###get total mempory
+
+```
+{{ with $d := plugin "system-stats-consul-template-plugin" "memory" |parseJSON }}{{ $d.total }}{{ end }}
+```
+
+### Calculate HEAP Space in MB
+
+```
+{{ with $d := plugin "system-stats-consul-template-plugin" "memory" |parseJSON }}{{ printf "%.f" (($d.total | multiply 0.8) | divide 1000 | divide 1000) }}{{ end }}
+```
 
 ## Links
  * [Consul Template](https://github.com/hashicorp/consul-template)
