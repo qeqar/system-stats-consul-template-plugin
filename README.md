@@ -13,6 +13,7 @@ f.e. calculate HEAP for Java APPs.
 ## Stats
  * memory
  * cpuInfo
+ * cpuCount
 
 ## Expample
 ###get total mempory
