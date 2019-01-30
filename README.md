@@ -6,7 +6,9 @@ f.e. calculate HEAP for Java APPs.
 
 ## Syntax
 
-`{{ plugin system-stats-consul-template-plugin "<statsType>"" }}`
+```
+{{ plugin system-stats-consul-template-plugin "<statsType>"" }}
+```
 
 ## Stats
  * memory
